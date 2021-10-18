@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Types",
+    "\\Types\\FunWithTypes",
+    "\\Types\\FunWithTypes\\FunWithTypes"
   ],
+  "SelectedNode": "\\Types\\FunWithTypes\\FunWithTypes\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
