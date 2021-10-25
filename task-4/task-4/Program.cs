@@ -12,7 +12,7 @@ namespace task_4
             Console.ReadKey();
         }
 
-        static double CalculateFullExpression() 
+        static double CalculateFullExpression()
         {
             double answer = CalculateSmallerPart(3, 5) * CalculateSmallerPart(3, 7) * CalculateSmallerPart(5, 5);
             return Math.Round(answer, 2);
