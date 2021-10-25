@@ -9,14 +9,13 @@ namespace task_2
             Console.WriteLine(@"Hi there! I'm the Square calculator
 Enter the side's length of your square in integer:");
 
-            int squareLength = int.Parse(Console.ReadLine());
-            PerimeterCalculator(squareLength);
-            AreaCalculator(squareLength);
+            double sideLength = Math.abs(double.Parse(Console.ReadLine()));
+
             Console.WriteLine(
                 "The perimeter is " +
-                PerimeterCalculator(squareLength) +
+                CalculatePerimeter(sideLength) +
                 " and the area is " +
-                AreaCalculator(squareLength)
+                CalculateArea(sideLength)
                 );
             Console.WriteLine(@"
 ////Type to exit");
@@ -24,14 +23,14 @@ Enter the side's length of your square in integer:");
 
         }
 
-        static int PerimeterCalculator(int arg)
+        static double CalculatePerimeter(double side)
         {
-            return arg * 4;
+            return side * 4;
         }
 
-        static int AreaCalculator(int arg)
+        static double CalculateArea(double side)
         {
-            return arg * arg;
+            return side * side;
         }
     }
 }
