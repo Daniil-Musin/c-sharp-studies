@@ -9,7 +9,7 @@ namespace task_2
             Console.WriteLine(@"Hi there! I'm the Square calculator
 Enter the side's length of your square in integer:");
 
-            double sideLength = Math.abs(double.Parse(Console.ReadLine()));
+            double sideLength = Math.Abs(double.Parse(Console.ReadLine()));
 
             Console.WriteLine(
                 "The perimeter is " +
