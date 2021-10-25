@@ -10,7 +10,7 @@ namespace task_3
             Console.WriteLine("Enter your x, please:");
             var x = double.Parse(Console.ReadLine());
 
-            Console.WriteLine($"This is what you get: {EquationSolver(x)}");
+            Console.WriteLine($"This is what you get: {EquationSolver(Math.PI * x)}");
             Console.WriteLine("////Type to exit");
             Console.ReadKey();
         }
@@ -18,8 +18,7 @@ namespace task_3
         static double EquationSolver(double x)
         {
             return 
-                2 * Math.Cos(1 / Math.Pow(x, 2.0))
-                / (Math.Pow(x, 3.0) + 1);
+                2 * Math.Cos(1 / (Math.Pow(x, 2.0) + 2)) / (Math.Pow(x, 3.0) + 1);
         }
     }
 }
