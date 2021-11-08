@@ -20,18 +20,18 @@ namespace task_6_._3_
 
                 if (whiteKnightPosition == blackQueenPosition)
                 {
-                    throw new ArgumentException("pieces cannot share the same position");
+                    throw new ArgumentException("pieces cannot be placed on the same square");
                 } 
                 else if (
-                    CheckIfKnightCanTakeAPiece(whiteKnightPosition, blackQueenPosition) 
-                    && 
-                    CheckIfQueenCanTakeAPiece(blackQueenPosition, whiteKnightPosition))
+                    CheckIfKnightCanTakeASquare(whiteKnightPosition, blackQueenPosition) 
+                    || 
+                    CheckIfQueenCanTakeASquare(blackQueenPosition, whiteKnightPosition))
                 {
-                    throw new ArgumentException("фигуры не должны находится под боем друг друга (такое невозможно в принципе, ну да ладно)");
+                    throw new ArgumentException("фигуры не могут находиться под боем друг друга");
                 }
                 else
                 {
-                    Console.Write("Everything is fine; \nSo, choose a position for white knight to move to: ");
+                    Console.Write("Everything is fine; \nSo, choose a position for the white knight to move to: ");
                     string nextKnightPosition = TranslateFirstCharToNumber(Console.ReadLine());
                     Console.WriteLine(
                         CheckIfThisIsPossibleForKnightToMove(whiteKnightPosition, blackQueenPosition, nextKnightPosition) 
@@ -69,40 +69,40 @@ namespace task_6_._3_
             return (inputPosition[0] - 96).ToString() + inputPosition[1];
         }
 
-        static bool CheckIfQueenCanTakeAPiece(string queenPosition, string piecePosition)
+        static bool CheckIfQueenCanTakeASquare(string queenPosition, string squarePosition)
         {
             return
-            ((queenPosition[0] == piecePosition[0]
+            ((queenPosition[0] == squarePosition[0]
                     &&
-            !(queenPosition[1] == piecePosition[1]))
+            !(queenPosition[1] == squarePosition[1]))
                 ||
-            (!(queenPosition[0] == piecePosition[0])
+            (!(queenPosition[0] == squarePosition[0])
                     &&
-            queenPosition[1] == piecePosition[1]))
+            queenPosition[1] == squarePosition[1]))
 
             ^
 
-            (Math.Abs(queenPosition[0] - piecePosition[0]) 
+            (Math.Abs(queenPosition[0] - squarePosition[0]) 
             == 
-            Math.Abs(queenPosition[1] - piecePosition[1]));
+            Math.Abs(queenPosition[1] - squarePosition[1]));
         }
 
-        static bool CheckIfKnightCanTakeAPiece(string knightPosition, string piecePosition)
+        static bool CheckIfKnightCanTakeASquare(string knightPosition, string squarePosition)
         {
             return 
-            (Math.Abs(knightPosition[0] - piecePosition[0]) == 1
-                && Math.Abs(knightPosition[1] - piecePosition[1]) == 2) 
+            (Math.Abs(knightPosition[0] - squarePosition[0]) == 1
+                && Math.Abs(knightPosition[1] - squarePosition[1]) == 2) 
             ^
-            (Math.Abs(knightPosition[0] - piecePosition[0]) == 2 
-                && Math.Abs(knightPosition[1] - piecePosition[1]) == 1);
+            (Math.Abs(knightPosition[0] - squarePosition[0]) == 2 
+                && Math.Abs(knightPosition[1] - squarePosition[1]) == 1);
         }
 
         static bool CheckIfThisIsPossibleForKnightToMove(string prevKnightPosition, string currQueenPosition, string nextKnightPosition)
         {
             return
-            CheckIfKnightCanTakeAPiece(prevKnightPosition, nextKnightPosition)
+            CheckIfKnightCanTakeASquare(prevKnightPosition, nextKnightPosition)
             &&
-            !CheckIfQueenCanTakeAPiece(currQueenPosition, nextKnightPosition);
+            !CheckIfQueenCanTakeASquare(currQueenPosition, nextKnightPosition);
         }
     }
 }
