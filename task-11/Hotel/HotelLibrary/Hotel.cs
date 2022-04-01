@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HotelLibrary
+namespace Hotel
 {
     public class Room
     {
@@ -15,23 +15,14 @@ namespace HotelLibrary
             Number = number;
             BedCount = bedCount;
             WindowsDirection = windowsDirection;
+
         }
 
-        public virtual string[] GetInfo()
-        {
-            string[] arr = { 
-                $"Room's number is {Number}",
-                $"Room's bedcount is {BedCount}",
-                $"Room's windows' direction is {WindowsDirection}",
-                $"Room's cost per night is {CostPerNight}",
-                $"Room will be freed on {TimeOfLeaving}"
-            };
-            return arr;
-        }
 
         public override string ToString()
         {
             return $"Room #{Number}";
+
         }
 
     }
