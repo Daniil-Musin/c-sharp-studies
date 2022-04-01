@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hotel
+namespace HotelLibrary
 {
     public enum Direction
     {
